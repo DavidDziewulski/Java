@@ -5,7 +5,7 @@ import javax.xml.crypto.dsig.keyinfo.PGPData;
 public class Main {
 
     public static void main(String[] args) {
-	    Animal dog = new Animal();
+	    Animal dog = new Animal("canis familiaris");
 	    dog.name = "Szarik";
 
         Phone iphone = new Phone();
@@ -27,5 +27,8 @@ public class Main {
         dog.feed();
         dog.takeForAWalk();
         dog.takeForAWalk();
+
+        Car Audi = new Car("Sportback","Audi","Disel","wozd29so391");
+        dawid.car = Audi;
     }
 }

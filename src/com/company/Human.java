@@ -7,6 +7,7 @@ public class Human {
     Integer age;
 
     Phone mobilePhone;
+    Car car;
     Animal pet;
 
 
