@@ -5,7 +5,6 @@ public class Phone {
     String model;
     String operationSystem;
     Double screenSize;
-
     String getOsVersion(){
         return "5.32.1";
     }
