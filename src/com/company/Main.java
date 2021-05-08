@@ -30,5 +30,7 @@ public class Main {
 
         Car Audi = new Car("Sportback","Audi","Disel","wozd29so391");
         dawid.car = Audi;
+        dawid.setSalary(100);
+        dawid.getSalary();
     }
 }
