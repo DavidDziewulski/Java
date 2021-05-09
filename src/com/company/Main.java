@@ -28,9 +28,9 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
 
-        Car Audi = new Car("Sportback","Audi","Disel","wozd29so391");
-        dawid.car = Audi;
-        dawid.setSalary(100);
+        Car Audi = new Car("Sportback","Audi","Disel","wozd29so391",2000.00);
+        dawid.setSalary(2001);
         dawid.getSalary();
+        dawid.setCar(Audi);
     }
 }
