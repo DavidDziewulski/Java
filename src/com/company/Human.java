@@ -1,4 +1,7 @@
 package com.company;
+import devices.Car;
+import devices.Phone;
+
 import java.util.Date;
 public class Human {
     String firstName;
@@ -41,6 +44,9 @@ public class Human {
         }else{
             System.out.println("zapisz się na studia i znajdź nową robotę albo idź po podwyżkę");
         }
+    }
+    public String toString(){//overriding the toString() method
+        return "firstName:"+firstName+"lastName:"+lastName+"sex:"+sex;
     }
 
 }

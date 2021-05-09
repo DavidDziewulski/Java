@@ -1,6 +1,6 @@
 package com.company;
-
-import javax.xml.crypto.dsig.keyinfo.PGPData;
+import devices.Car;
+import devices.Phone;
 
 public class Main {
 
@@ -28,9 +28,16 @@ public class Main {
         dog.takeForAWalk();
         dog.takeForAWalk();
 
-        Car Audi = new Car("Sportback","Audi","Disel","wozd29so391",2000.00);
+        Car audi = new Car("Sportback","Audi","Disel","wozd29so391",2000.00);
         dawid.setSalary(2001);
         dawid.getSalary();
-        dawid.setCar(Audi);
+        dawid.setCar(audi);
+        Car audi2 = new Car("Sportback","Audi","Disel","wozd29so391",2000.00);
+        System.out.println(audi.model.equals(audi2.model));
+        System.out.println(audi.equals(audi2));
+        System.out.println(audi);
+        System.out.println(s11);
+        System.out.println(dawid);
+        System.out.println(dog);
     }
 }

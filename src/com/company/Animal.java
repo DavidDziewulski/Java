@@ -1,5 +1,4 @@
 package com.company;
-
 import java.io.File;
 
 public class Animal {
@@ -28,5 +27,8 @@ public class Animal {
             this.weight--;
             System.out.println("Thanks for walk:)");
         }
+    }
+    public String toString(){//overriding the toString() method
+        return "name:"+name+"weight:"+weight+"species:"+species;
     }
 }
