@@ -1,14 +1,18 @@
 package devices;
 
-public class Phone {
-     public String producer;
-     public String model;
+public class Phone extends Device {
     public String operationSystem;
     public Double screenSize;
+    public Integer yearOfProduction;
+
+    public Phone(String model, String producer, Integer yearOfProduction, Double screenSize){
+        super(model,producer,yearOfProduction);
+        this.screenSize = screenSize;
+    }
     public String getOsVersion(){
         return "5.32.1";
     }
-    public String toString(){//overriding the toString() method
-        return "producer:"+ producer+"model:"+model;
+    public void turnOn() {
+        System.out.println("Włączone");
     }
 }
