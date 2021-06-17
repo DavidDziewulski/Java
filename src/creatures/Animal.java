@@ -1,7 +1,10 @@
-package com.company;
+package creatures;
+import com.company.Human;
+import com.company.Salleable;
+
 import java.io.File;
 
-public class Animal implements Salleable  {
+public abstract class Animal implements Salleable,  Feedable {
     String name;
     private Double weight = 1.0;
     final public  String species;
@@ -33,7 +36,11 @@ public class Animal implements Salleable  {
             }
         }
     }
-    void feed(){
+    public void feed(){
+        this.weight++;
+        System.out.println("Thanks for food:)");
+    }
+    public void feed(Double fooWeight){
         this.weight++;
         System.out.println("Thanks for food:)");
     }
