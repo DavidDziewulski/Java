@@ -1,5 +1,7 @@
 package devices;
 
+import com.company.Human;
+
 public class Car extends Device{
     final private String vin;
     final public double value;
@@ -18,5 +20,23 @@ public class Car extends Device{
     }
     public void turnOn() {
         System.out.println("Włączone");
+    }
+    public void sell(Human seller, Human buyer, Double price){
+        if(seller.getCar() == null){
+            System.out.println("Niestety sprzedający nie ma samochodu");
+        }
+        else{
+            System.out.println(buyer.getCash());
+            if(buyer.getCash() >= price){
+                seller.setCash(seller.getCash()+price);
+                buyer.setCash(buyer.getCash()-price);
+                seller.setCar(null);
+                buyer.setCar(seller.getCar());
+                System.out.println("Kupujący kupił samochod");
+            }
+            else{
+                System.out.println("Niestety nie masz tyle kasy");
+            }
+        }
     }
 }

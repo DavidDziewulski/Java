@@ -1,7 +1,7 @@
 package com.company;
 import java.io.File;
 
-public class Animal {
+public class Animal implements Salleable  {
     String name;
     private Double weight = 1.0;
     final public  String species;
@@ -14,6 +14,23 @@ public class Animal {
             case "canis familiaris" : this.weight = 10.0;
             case "feline" : this.weight = 2.0;
             default: this.weight = DEFAULT_ANIMAL_WEIGHT;
+        }
+    }
+    public void sell(Human seller, Human buyer, Double price){
+        if(seller.getPet() == null){
+          System.out.println("Niestety sprzedający nie ma zwierzaka");
+        }
+        else{
+            if(buyer.getCash() >= price){
+                seller.setCash(seller.getCash()+price);
+                buyer.setCash(buyer.getCash()-price);
+                seller.setPet(null);
+                buyer.setPet(seller.getPet());
+                System.out.println("Kupujący kupił zwierzę");
+            }
+            else{
+                System.out.println("Niestety nie masz tyle kasy");
+            }
         }
     }
     void feed(){
@@ -31,4 +48,6 @@ public class Animal {
     public String toString(){//overriding the toString() method
         return "name:"+name+"weight:"+weight+"species:"+species;
     }
+
+
 }

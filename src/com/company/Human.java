@@ -8,7 +8,7 @@ public class Human {
     String lastName;
     String sex;
     Integer age;
-
+    Double cash;
     Phone mobilePhone;
     private Car car;
     Animal pet;
@@ -47,6 +47,25 @@ public class Human {
     }
     public String toString(){//overriding the toString() method
         return "firstName:"+firstName+"lastName:"+lastName+"sex:"+sex;
+    }
+    public Animal getPet() {
+        return pet;
+    }
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+    public Double getCash() {
+        return cash;
+    }
+    public void setCash(Double cash) {
+        this.cash = cash;
+    }
+    public Phone getPhone() {
+        return mobilePhone;
+    }
+
+    public void setPhone(Phone mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
 }
