@@ -1,5 +1,4 @@
 package devices;
-import com.company.Human;
 
 import java.net.MalformedURLException;
 import java.net.URL;

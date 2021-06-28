@@ -1,8 +1,9 @@
-package com.company;
+package devices;
 import creatures.Animal;
 import devices.Car;
 import devices.Phone;
 
+import java.util.Arrays;
 import java.util.Date;
 public class Human {
     String firstName;
@@ -11,10 +12,26 @@ public class Human {
     Integer age;
     Double cash;
     Phone mobilePhone;
-    private Car car;
+    private Car[] garage;
     Animal pet;
     private Double salary;
-
+    public Human(String firstName, String lastName, Integer age, String sex, Double salary) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.age=age;
+        this.sex=sex;
+        this.salary=salary;
+        this.garage = new Car[2];
+    }
+    public Human(String firstName, String lastName, Integer age, String sex, Double salary, Car[] list, Integer cars) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.age=age;
+        this.sex=sex;
+        this.salary=salary;
+        this.garage = new Car[cars];
+        this.garage = list;
+    }
 
     public double getSalary() {
         Date date = new Date();
@@ -32,20 +49,13 @@ public class Human {
             this.salary = num;
         }
     }
-    public Car getCar() {
-        return this.car;
+    public Car getCar(int miejsce) {
+        return this.garage[miejsce];
     }
-    public void setCar(Car newCar) {
-        if(this.salary > newCar.value){
-            System.out.println("Udało kupić się samochód za gotówkę");
-            this.car = newCar;
-        }else if(this.salary > newCar.value/12){
-            System.out.println("udało się kupić na kredyt (no trudno)");
-            this.car = newCar;
-        }else{
-            System.out.println("zapisz się na studia i znajdź nową robotę albo idź po podwyżkę");
-        }
+    public void setCar(Car newCar, int miejsce) {
+      this.garage[miejsce] = newCar;
     }
+    public Car[] getGarage(){return garage;}
     public String toString(){//overriding the toString() method
         return "firstName:"+firstName+"lastName:"+lastName+"sex:"+sex;
     }
@@ -68,5 +78,14 @@ public class Human {
     public void setPhone(Phone mobilePhone) {
         this.mobilePhone = mobilePhone;
     }
-
+    public Double obliczSume(){
+        Double result = 0.0;
+            for(Car auto:garage){
+                result+=auto.getValue();
+            }
+        return result;
+    }
+    public void sortuj(){
+        Arrays.sort(garage);
+    }
 }

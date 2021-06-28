@@ -5,6 +5,7 @@ public abstract class Device {
     public final String  model;
     public final Integer yearOfProduction;
     public abstract void turnOn();
+    Double value;
 
     public Device(String producer, String model, Integer yearOfProduction){
         this.producer = producer;
@@ -13,5 +14,8 @@ public abstract class Device {
     }
     public String toString(){
         return "producer:"+ producer+"model:"+model  + "yearOfProduction:"+yearOfProduction;
+    }
+    public String getModel() {
+        return model;
     }
 }

@@ -1,7 +1,5 @@
 package devices;
 
-import com.company.Human;
-
 public abstract class Car extends Device{
     final private String vin;
     final public double value;
@@ -24,22 +22,48 @@ public abstract class Car extends Device{
     public void turnOn() {
         System.out.println("Włączone");
     }
-    public void sell(Human seller, Human buyer, Double price){
-        if(seller.getCar() == null){
-            System.out.println("Niestety sprzedający nie ma samochodu");
+    public void sell(Human seller, Human buyer, Double price, Car auto){
+        int i=0;
+        int miejsceSeller=0;
+        for(Car car:seller.getGarage()){
+            if(!car.equals(auto)){
+                miejsceSeller++;
+            }
+            i++;
+
         }
-        else{
-            System.out.println(buyer.getCash());
-            if(buyer.getCash() >= price){
-                seller.setCash(seller.getCash()+price);
-                buyer.setCash(buyer.getCash()-price);
-                seller.setCar(null);
-                buyer.setCar(seller.getCar());
-                System.out.println("Kupujący kupił samochod");
+        if(i != 0){
+            i=0;
+            int miejsceBuyer=0;
+            for(Car car: buyer.getGarage()){
+                if(car == null){
+                    miejsceBuyer++;
+                }
+                i++;
+
+            }
+            if(i != 0){
+                if(buyer.getCash() >= price){
+                    buyer.setCash(buyer.getCash()-price);
+                    seller.setCash((seller.getCash()+price));
+                    buyer.setCar(seller.getCar(miejsceSeller), miejsceBuyer);
+                    seller.setCar(null,miejsceSeller);
+                    System.out.println("Samochod Kupiony!");
+                }
+                else{
+                    System.out.println("Kupujacy nie ma pieniędzy!");
+                }
             }
             else{
-                System.out.println("Niestety nie masz tyle kasy");
+                System.out.println("Brak miejsc w garazu u kupującego");
             }
         }
+        else{
+            System.out.println("Seller nie ma auta!!");
+        }
+    }
+    public  Double getValue()
+    {
+        return  this.value;
     }
 }
